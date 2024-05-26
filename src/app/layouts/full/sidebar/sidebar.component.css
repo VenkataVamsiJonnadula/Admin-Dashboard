@@ -5,3 +5,10 @@
 mat-sidenav-container{
     height: calc(100vh - 64px);
 }
+
+.active{
+    background-color: #e66565;
+}
+.active > mat-icon{
+    color: white;
+}
