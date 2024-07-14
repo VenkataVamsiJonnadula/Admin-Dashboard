@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://node-express-firebase-five.vercel.app",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

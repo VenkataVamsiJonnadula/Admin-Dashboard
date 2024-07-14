@@ -15,4 +15,14 @@ export class BookServiceService {
     return this.http.get<Book[]>(`${this.baseUrl}/getBooks`);
   }
   
+  deleteBook(book: Book){
+    let bookIDs = [] as number [];
+    bookIDs.push(parseInt(book.id? book.id : '0'));
+    console.log(bookIDs)
+    return this.http.delete(`${this.baseUrl}/deleteBook`, {body: {bookIDs}})
+  }
+
+  addBook(book: Book){
+    return this.http.post(`${this.baseUrl}/addBook`, book)
+  }
 }

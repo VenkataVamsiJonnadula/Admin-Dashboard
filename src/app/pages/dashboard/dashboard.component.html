@@ -1,40 +1,15 @@
 <div class="container">
-    <div class="row">
-        <span class="text-lg tracking-wider">Good {{ timeOfTheDay }}, Vamsi!</span>
-        <br><br>
-        <div class="col">
-          <div class="text-2xl ml-5 mb-3">
-            Top Books
-          </div>
-          <table mat-table [dataSource]="booksData" class="mat-elevation-z3">
-
-            <!-- Column definitions -->
-            <ng-container matColumnDef="BookName">
-              <th mat-header-cell *matHeaderCellDef> Book Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.BookName}} </td>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="Genre">
-              <th mat-header-cell *matHeaderCellDef> Genre </th>
-              <td mat-cell *matCellDef="let element"> {{element.Genre}} </td>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="ISBN">
-              <th mat-header-cell *matHeaderCellDef> ISBN </th>
-              <td mat-cell *matCellDef="let element"> {{element.ISBN}} </td>
-            </ng-container>
-          
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="QuantityAvailable">
-              <th mat-header-cell *matHeaderCellDef> Quantity Available </th>
-              <td mat-cell *matCellDef="let element"> {{element.QuantityAvailable}} </td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logger(row)" mat-ripple matRipple></tr>
-          </table>
-        </div>
+  <div class="row">
+    <span class="text-lg tracking-wider">Good {{ timeOfTheDay }}, Vamsi!</span>
+    <br><br>
+    <div class="col">
+      <div class="text-2xl ml-5 mb-3">
+        Top Books
+      </div>
+      <app-books 
+        [booksData]="topBooks" 
+        [displayTop]="5"
+        [optionsHidden]="true"></app-books> <!-- Pass the displayTop input -->
     </div>
+  </div>
 </div>
