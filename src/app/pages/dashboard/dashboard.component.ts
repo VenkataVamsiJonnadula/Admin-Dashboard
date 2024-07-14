@@ -8,16 +8,12 @@ import { Book } from '../../models/book';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-logger(row: any) {
-  console.log(row);
-}
-timeOfTheDay: any;
-booksData: Book[] = [];
-dataSource: any;
-displayedColumns: string[] = ['BookName', 'Genre', 'ISBN', 'QuantityAvailable'];
+  timeOfTheDay!: string;
+  topBooks: Book[] = [];
+
+  constructor(private bookService: BookServiceService) {}
 
   ngOnInit(): void {
-
     const currentHour = new Date().getHours();
     if (currentHour <= 12) {
       this.timeOfTheDay = 'Morning';
@@ -27,7 +23,8 @@ displayedColumns: string[] = ['BookName', 'Genre', 'ISBN', 'QuantityAvailable'];
       this.timeOfTheDay = 'Evening';
     }
 
-    this.bookService.getBooks().subscribe((books) => this.booksData = books.slice(0, 5)); // Displays only first 5 books
+    this.bookService.getBooks().subscribe((books) => {
+      this.topBooks = books.slice(0, 5);
+    });
   }
-  constructor(private bookService: BookServiceService){}
 }
