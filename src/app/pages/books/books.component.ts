@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   Input,
   OnInit,
@@ -49,8 +48,7 @@ export class BooksComponent implements OnInit {
   constructor(
     public bookService: BookServiceService,
     public matDialog: MatDialog,
-    private formBuilder: FormBuilder,
-    private cdr: ChangeDetectorRef
+    private formBuilder: FormBuilder
   ) {
     this.editBookForm = this.formBuilder.group({
       bookName: this.editBookNameControl,
